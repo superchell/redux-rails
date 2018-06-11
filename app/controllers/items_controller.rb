@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
-  respond_to :html, :json
 
-  def index
-    @items = Items.all
+  def show
+    @items = Item.all
     respond_to do |format|
       format.html
       format.json do
