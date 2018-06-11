@@ -1,0 +1,16 @@
+{
+  "name": "redux-rails",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react_ujs": "^2.4.4"
+  },
+  "devDependencies": {
+    "@rails/webpacker": "^3.2.2",
+    "babel-preset-react": "^6.24.1",
+    "webpack-dev-server": "2.11.2"
+  }
+}
