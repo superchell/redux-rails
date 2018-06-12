@@ -1,13 +1,56 @@
-/* eslint no-console:0 */
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import { BrowserRouter, StaticRouter } from 'react-router-dom'
 //
-// To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
-// layout file, like app/views/layouts/application.html.erb
+// import { createStore, combineReducers, applyMiddleware } from "redux";
+// import { Provider } from "react-redux";
+//
+// import createHistory from "history/createBrowserHistory";
+//
+// import {
+//     ConnectedRouter,
+//     routerReducer,
+//     routerMiddleware,
+//     push
+// } from "react-router-redux";
+//
+// import reducers from "../reducers/index"; // Or wherever you keep your reducers
+//
+// import App from '../components/App'
+//
+// export default (data) => {
+//     // Create a history of your choosing (we're using a browser history in this case)
+//     const history = createHistory();
+//
+// // Build the middleware for intercepting and dispatching navigation actions
+//     const middleware = routerMiddleware(history);
+//
+// // Add the reducer to your store on the `router` key
+// // Also apply our middleware for navigating
+//
+//     const store = createStore(
+//         combineReducers({
+//             reducers,
+//             router: routerReducer
+//         }),
+//         applyMiddleware(middleware)
+//     );
+//
+//     store.dispatch({
+//         type: 'GET_PROPS',
+//         user: data
+//     });
+//
+//     return(
+//         <Provider store={store}>
+//             {/* ConnectedRouter will use the store from Provider automatically */}
+//             <ConnectedRouter history={history}>
+//                 <App />
+//             </ConnectedRouter>
+//         </Provider>
+//     )
+// }
 
-// Support component names relative to this directory:
 var componentRequireContext = require.context("components", true)
 var ReactRailsUJS = require("react_ujs")
 ReactRailsUJS.useContext(componentRequireContext)

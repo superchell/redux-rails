@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 
 class HelloWorld extends React.Component {
   render () {
-    const {greeting} = this.props.greeting;
+    const {greeting} = this.props;
     return (
       <React.Fragment>
         Greeting: {greeting}
@@ -14,7 +14,7 @@ class HelloWorld extends React.Component {
 
 function mapStateToProps (state) {
     return {
-        greeting: state
+        greeting: state.reducers
     }
 }
 
