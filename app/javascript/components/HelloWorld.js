@@ -1,21 +1,16 @@
 import React from "react"
 import {connect} from "react-redux";
+import { NavLink } from 'react-router-dom'
 
-class HelloWorld extends React.Component {
+export default class HelloWorld extends React.Component {
   render () {
     const {greeting} = this.props;
     return (
       <React.Fragment>
         Greeting: {greeting}
+        <NavLink to="/items">Items</NavLink>
       </React.Fragment>
     );
   }
 }
 
-function mapStateToProps (state) {
-    return {
-        greeting: state.reducers
-    }
-}
-
-export default connect(mapStateToProps)(HelloWorld)

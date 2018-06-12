@@ -1,26 +1,43 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { BrowserRouter, Router, Route, Link } from "react-router-dom";
+import {BrowserRouter, StaticRouter, Route, Switch} from 'react-router-dom'
 
-import rootReducer from './redux/reducers';
-import { createStore, applyMiddleware } from 'redux'
+import Home from './HelloWorld';
+import Items from './Items';
 
-import createBrowserHistory from 'history/createBrowserHistory'
 
-import App from './redux/App'
-import AppNext from './redux/AppNext'
+class Router extends React.Component {
+    renderRouter = () => {
+        if (typeof window !== 'undefined') {
+            return (
+                <BrowserRouter>
+                    {this.props.children}
+                </BrowserRouter>
+            )
+        } else {
+            return (
+                <StaticRouter location={this.props.path} context={{}}>
+                    {this.props.children}
+                </StaticRouter>
+            )
+        }
+    }
 
-export default (props) => {
-    const initialState = props;
-    const store = createStore(rootReducer, initialState)
-    const customHistory = createBrowserHistory()
+    render() {
+        return (this.renderRouter())
+    }
+}
 
-    return(
-        <Provider store={store}>
-            <Router  history={customHistory}>
-                <Route exact path="/" component={App} />
-            </Router>
-        </Provider>
+const App = props => {
+    const data = props.data;
+    return (
+        <Router path={props.path} data={props.data}>
+            <Switch>
+                <Route exact path="/" render={props => ( <Home {...props} data={data} /> )}/>)} />
+                <Route path="/items" render={props => ( <Items {...props} data={data} /> )}/>
+            </Switch>
+        </Router>
     )
 }
+
+
+export default App

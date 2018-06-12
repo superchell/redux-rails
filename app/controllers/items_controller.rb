@@ -5,9 +5,7 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        render json: @products,
-               adapter: :json,
-               root: 'items'
+        render json: @items
       end
     end
   end
