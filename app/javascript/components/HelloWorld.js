@@ -1,16 +1,21 @@
 import React from "react"
-import PropTypes from "prop-types"
+import {connect} from "react-redux";
+
 class HelloWorld extends React.Component {
   render () {
+    const {greeting} = this.props.greeting;
     return (
       <React.Fragment>
-        Greeting: {this.props.greeting}
+        Greeting: {greeting}
       </React.Fragment>
     );
   }
 }
 
-HelloWorld.propTypes = {
-  greeting: PropTypes.string
-};
-export default HelloWorld
+function mapStateToProps (state) {
+    return {
+        greeting: state
+    }
+}
+
+export default connect(mapStateToProps)(HelloWorld)
