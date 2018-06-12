@@ -1,1 +1,1 @@
-<%= react_component("App", { items: json_records(@items) }) %>
+<%= react_component("App", {path: request.path, data:{items: json_records(@items)} }, {prerender: true}) %>
